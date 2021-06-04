@@ -1,0 +1,25 @@
+"use strict"
+
+//alert("this works");
+
+//function showMultiplicationTable(x) {
+ //   for (let y = 0; y < 11;y++ )
+ //   console.log (x + " x " + y + " = " + (x*y));
+//
+// }
+// showMultiplicationTable(7)
+
+//function randomNumberTable(x) {
+/*var ranNum = Math.floor(Math.random() * 100) + 10;
+
+    for (var x = 0; x <10; x++) {
+        let x = Math.ceil(Math.random() * 100) + 10;
+        if (x % 2 === 0) {
+            console.log(x + " is even");
+        } else {
+            console.log(x + " is odd");
+        }
+    }
+//}
+Math.floor(Math.random(x)) */
+
