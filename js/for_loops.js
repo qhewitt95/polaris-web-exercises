@@ -23,7 +23,7 @@
 //}
 Math.floor(Math.random(x)) */
 
-function tree() {
+/*function tree() {
     for (let x=1; x<10; x++) {
 
         var number = "";
@@ -34,4 +34,9 @@ function tree() {
         console.log(number.toString());
     }
 }
-tree();
+tree(); */
+// -5 exercise
+/*for (var i = 100; i > 5; i = i -5) {
+    console.log(i);
+} */
+
