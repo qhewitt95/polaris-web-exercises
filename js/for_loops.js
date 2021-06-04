@@ -23,3 +23,15 @@
 //}
 Math.floor(Math.random(x)) */
 
+function tree() {
+    for (let x=1; x<10; x++) {
+
+        var number = "";
+        number = x;
+        for ( let y = 1; y<x; y++) {
+            number=number+x.toString();
+        }
+        console.log(number.toString());
+    }
+}
+tree();
