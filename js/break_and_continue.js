@@ -42,4 +42,24 @@ for (let index = 0; index < 50; index++) {
 }
 */
 
-var timesTwo;
+
+
+
+let totalCanSell = Math.ceil(Math.random() * (100 - 50) + 50);
+console.log("The the number of cones I can sell " + totalCanSell);
+
+let totalSold = 0;
+
+do {
+    let conesBought = Math.ceil(Math.random() * (5- 1) + 1);
+
+
+    if((totalSold + conesBought) > totalCanSell) {
+        console.log(" im sorry i cant do that right now ");
+        continue;
+    }
+    console.log("My customer bought " + conesBought);
+    totalSold = totalSold + conesBought;
+    console.log("I've sold this many " + totalSold)
+
+}while (totalSold < totalCanSell);
