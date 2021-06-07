@@ -24,7 +24,7 @@ for (var i = 1; i < 100; i++) {
 // This skips odd number from user.
 /*var oddNumber;
 while(true) {
-    oddNumber = parseInt(prompt("Enter an odd number betwen 1 and 50"));
+    oddNumber = parseInt(prompt("Enter an odd number between 1 and 50"));
     if (oddNumber % 2 != 0) {
         break;
        // console.log("The odd number skipped is " + oddNumber);
