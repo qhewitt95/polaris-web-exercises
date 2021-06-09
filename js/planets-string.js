@@ -12,7 +12,8 @@
      */
 
      console.log(planetsArray);
-
+planetsArray = planetsString.split("|")
+    console.log(planetsArray);
     /**
      * TODO:
      * Create a string with <br> tags between each planet. console.log() your
@@ -23,10 +24,10 @@
      * list. You will need an opening AND closing <ul> tags around the entire
      * string, and <li> tags around each planet.
      */
-
+    let anotherString = "<ul><li>" + planetsArray.join("</li><li>") + "</li></ul>";
     planetsArray = ["Mercury","Venus ","Earth","Mars","Jupiter","Saturn","Uranus","Neptune "];
-
-    console.log(planetsArray)
+console.log(anotherString);
+    document.write(anotherString);
 
 
 })();

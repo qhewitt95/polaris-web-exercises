@@ -179,7 +179,7 @@ if (answer) {
         }
         alert("100 + your number is :" + Number(number+100));
         if (number < 0) {
-            alert("Your number is negaivef");
+            alert("Your number is negative");
         } else {
             alert("Your number is positive");
         }
