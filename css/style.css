@@ -2,6 +2,33 @@
     color: darkslateblue;
     text-decoration: underline;
 }
+h1 {
+    text-align:center;
+}
+h1, h2 {
+    color: aquamarine;
+    text-decoration: underline;
+}
+body {
+    background: #ffb935;
+    background-image: url("../img/poly.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Indie Flower", cursive;
+    height:100%
+
+}
+td, tr {
+    padding: 5px;
+    font-size:1em;
+}
+
+ul > li {
+    list-style-type: square;
+}
+
+
 #container h2 {
     color: blue;
 }
@@ -11,15 +38,21 @@ a:link {
 
 /* visited link (:visited) */
 a:visited {
-    color:black;
+    color:red;
 }
 
 /* mouse hover over link (:hover) */
 a:hover {
     color:blue;
+    transition:500ms;
+    font-size:1.2em;
 }
 
 /* active/selected link (:active) */
 a:active {
     color:green;
+}
+a{
+    transition:500ms;
+    color:red;
 }
