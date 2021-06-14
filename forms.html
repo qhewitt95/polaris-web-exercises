@@ -9,27 +9,40 @@
 <form method="POST" action="https://request-inspector.glitch.me/">
 
         <label for="email">Email</label>
-        <input id="email" name="email" type="text">
+        <input id="email" name="userEmail" type="email" placeholder="Enter email here">
         <br>
 
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password">
+        <label for="passwordField">Password</label>
+        <input id="passwordField" name="userPassword" type="password" placeholder="Enter password here">
         <br>
     <label>Bio </label>
     <textarea name="bio"></textarea>
 
     <br>
     <h2>How did you hear about us?</h2>
-    <label><input type="radio" id="billboard" name="billboard[]" value="Billboard"> Billboard</label> <br>
-    <label><input type="radio" id="radio" name="billboard[]" value="Radio"> Radio</label><br>
-    <label><input type="radio" id="internet" name="billboard[]" value="Internet">Internet</label><br>
-    <label><input type="radio" id="other" name="billboard[]" value="Other">Other</label>
+    <label><input type="radio" id="billboard" name="hearAbout" value="Billboard"> Billboard</label> <br>
+    <label><input type="radio" id="radio" name="hearAbout" value="Radio"> Radio</label><br>
+    <label><input type="radio" id="internet" name="hearAbout" value="Internet">Internet</label><br>
+    <label><input type="radio" id="other" name="hearAbout" value="Other">Other</label>
+    <br>
     <br>
 
+<br>
+    <label for ="browserType"> What is your browser?</label>
+    <select id="browserType" name = "browser">
+        <option value="Google Chrome">Chrome</option>
+        <option value="Opera">Opera</option>
+        <option value="Safari">Safari</option>
+        <option disabled value="Internet Explorer">Internet Explorer</option>
 
-    <button type="submit">Send it</button>
+
+    </select> <br>
+
+    <button type="submit">Send it</button> <br>
+
 </form>
-
+</body>
+</html>
 
 
 
