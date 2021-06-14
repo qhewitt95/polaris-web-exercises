@@ -1,0 +1,25 @@
+.fancy-header {
+    color: darkslateblue;
+    text-decoration: underline;
+}
+#container h2 {
+    color: blue;
+}
+a:link {
+    color:red;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:black;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:blue;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:green;
+}
