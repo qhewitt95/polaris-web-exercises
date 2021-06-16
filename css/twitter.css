@@ -29,6 +29,7 @@ a {
     background: var(--light-bg);
     position:fixed;
     width: 100%;
+z-index: 5;
 }
 .nav-item {
     padding: 1.5em;
@@ -38,7 +39,8 @@ a {
 
 .profile-image {
     position:absolute;
-
+    top: 220px;
+    z-index: 2;
 }
 
 .nav {
@@ -46,6 +48,30 @@ a {
     padding: 0;
     margin: 0;
 }
+
+.profile-details {
+    float:left;
+    width: 25%;
+    margin-top: .5em;
+    margin-bottom: .5em;
+
+}
+.who-to-follow {
+    float:right;
+    width: 25%;
+    margin-top: .5em;
+    margin-bottom: .5em;
+
+}
+.timeline {
+
+    float:left;
+    width:50%;
+    margin-top: .5em;
+    margin-bottom: .5em;
+
+}
+
 
 .nav-link {
     color: var(--main-link-color);
@@ -57,11 +83,30 @@ a {
     color: var(--link-color);
 }
 
+.container {
+    column-count: 1;
+}
 
 .profile {
     background: var(--light-bg);
     height: 80px;
 }
+
+.profile-form {
+    float:right;
+    line-height: 80px;
+}
+
+.media {
+    background-color: lightblue;
+    padding: .5em;
+    width: 100%;
+    border-bottom: 1px;
+    --separator-color: 1px;
+    overflow:auto;
+
+}
+
 .btn {
     border: 1px solid var(--main-link-color);
     color: var(--main-link-color);
