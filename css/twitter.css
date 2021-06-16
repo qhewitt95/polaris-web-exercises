@@ -90,23 +90,21 @@ a {
 
 }
 .media-image {
-    width: 5em;
     float:left;
+    max-width: 50px;
     margin-top: 1.33em;
 }
 .media-body {
-    float:none;
-    width: 100%;
+    float:right;
+    width: calc(100% - 50px);
 
 }
 .media {
    --light-bg: white;
     background-color: whitesmoke;
     padding: .5em;
-    border-top: .1em solid #bbb;
+    border-bottom: .1em solid #bbb;
     width: 100%;
-    border-bottom: 1px;
-    border-bottom: black;
     overflow:auto;
 }
 
