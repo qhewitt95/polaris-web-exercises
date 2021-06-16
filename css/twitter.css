@@ -29,18 +29,12 @@ a {
     background: var(--light-bg);
     position:fixed;
     width: 100%;
-z-index: 5;
+    z-index: 5;
 }
 .nav-item {
     padding: 1.5em;
     display:inline-block;
 
-}
-
-.profile-image {
-    position:absolute;
-    top: 220px;
-    z-index: 2;
 }
 
 .nav {
@@ -49,6 +43,30 @@ z-index: 5;
     margin: 0;
 }
 
+.profile-image {
+    position:absolute;
+    top: 250px;
+    z-index: 2;
+}
+
+.profile-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.profile {
+    background: var(--light-bg);
+    height: 80px;
+}
+
+.profile-form {
+    float:right;
+    line-height: 80px;
+}
+
+.profile-entry {
+    margin: .5em;
+}
 .profile-details {
     float:left;
     width: 25%;
@@ -66,12 +84,31 @@ z-index: 5;
 .timeline {
 
     float:left;
-    width:50%;
+    width:48%;
     margin-top: .5em;
     margin-bottom: .5em;
 
 }
+.media-image {
+    width: 5em;
+    float:left;
+    margin-top: 1.33em;
+}
+.media-body {
+    float:none;
+    width: 100%;
 
+}
+.media {
+   --light-bg: white;
+    background-color: whitesmoke;
+    padding: .5em;
+    border-top: .1em solid #bbb;
+    width: 100%;
+    border-bottom: 1px;
+    border-bottom: black;
+    overflow:auto;
+}
 
 .nav-link {
     color: var(--main-link-color);
@@ -84,28 +121,9 @@ z-index: 5;
 }
 
 .container {
-    column-count: 1;
+    padding: 2em;
 }
 
-.profile {
-    background: var(--light-bg);
-    height: 80px;
-}
-
-.profile-form {
-    float:right;
-    line-height: 80px;
-}
-
-.media {
-    background-color: lightblue;
-    padding: .5em;
-    width: 100%;
-    border-bottom: 1px;
-    --separator-color: 1px;
-    overflow:auto;
-
-}
 
 .btn {
     border: 1px solid var(--main-link-color);
@@ -115,6 +133,7 @@ z-index: 5;
     padding: 8px;
     border-radius: 5px;
 }
+
 .btn-large {
     font-size: 1.3em;
     padding: 10px;
