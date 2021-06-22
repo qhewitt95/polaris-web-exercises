@@ -4,19 +4,44 @@
 body {
     margin: 0;
 }
-nav {
-    background: dimgray;
+
+.container {
+    display:flex;
+
 }
-ul {
-    list-style: none;
-    padding: 0;
+nav{
+    display:flex;
+    justify-content: space-between;
+    background-color: #636868;
+}
+
+.nav-items{
+    display:flex;
+    justify-content: space-between;
+}
+
+nav-link{
+    align-self: center;
+}
+
+nav-link > a{
+    color: #aaaaaa;
+    text-decoration: none;
+    padding: 0 5px
+}
+
+p.logo {
+    font-size: 2em;;
     margin: 0;
 }
 nav a {
     text-decoration: none;
     color: white;
     font-family: Verdana;
+    display:inline-block;
 }
 nav a:hover {
     background: black;
+    color:blue;
+    display:inline-block;
 }
