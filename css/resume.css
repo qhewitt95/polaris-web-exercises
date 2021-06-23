@@ -1,0 +1,33 @@
+.title, h4 {
+    text-align: center;
+}
+
+.align-content-lg-center {
+    /*background-color: whitesmoke;*/
+    border-bottom: 8px solid #0fb784;
+    padding:5px;
+
+}
+
+/*
+.border-0 {
+    border: 5em solid #0fb784;
+    border-bottom: black;
+}*/
+
+.skills {
+    color: #0fb784;
+}
+.academic {
+    color: #0fb784;
+}
+
+.professional {
+    color: #0fb784;
+}
+.development {
+    color: #0fb784;
+}
+.awards {
+    color: #0fb784;
+}
