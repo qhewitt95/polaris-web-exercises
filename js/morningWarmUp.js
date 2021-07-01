@@ -2,7 +2,7 @@
 function countSpaces(input) {
     if(typeof input === "string") {
         let input = "These are my words";
-        let spaceCount = (myWords.split(" ").length-1)
+        let spaceCount = (input.split(" ").length-1)
         console.log(spaceCount)
         return spaceCount;
     } else {
