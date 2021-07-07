@@ -42,7 +42,7 @@ var personOne = {
     ageInYears: 34,
     heightInInches: 65,
     getfullName: function() {
-            return this.firstName + " " + this.lastName;
+        return this.firstName + " " + this.lastName;
 
     }
 }
