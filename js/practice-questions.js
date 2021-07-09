@@ -1,4 +1,4 @@
-// TODO: Create a function named countSpaces that accepts a string and returns the total number of spaces in the string.
+/*// TODO: Create a function named countSpaces that accepts a string and returns the total number of spaces in the string.
 
 function countSpaces(input){
     return input.split(" ").length - 1
@@ -98,11 +98,11 @@ function countSpaces(input){
 // TODO: Add validation to function above, if the argument pass is not a string it should return false.
     }
 
-    function countSpaces(input){
+    function countSpaces(input) {
         var arrayOfObjects = arrayOfStringsToObjects(["hello", "dave"])
         console.log(arrayOfObjects)
 
-        if (typeof input !== "string"){
+        if (typeof input !== "string") {
             return false
         }
 // Part 2
@@ -115,13 +115,15 @@ function countSpaces(input){
 //          returns: "hello dave"
 
         return input.split(" ").length - 1
-        function arrayOfObjectsToStrings(arrayObjectsParam){
+
+        function arrayOfObjectsToStrings(arrayObjectsParam) {
 
         }
+
         var results = []
 
 // July 6th 2021
-        arrayObjectsParam.forEach(function (singleObject){
+        arrayObjectsParam.forEach(function (singleObject) {
 
 // TODO: Create a function named capitalizeAllNames that accepts an array of strings and returns the array with all of its elements capitalized.
 // Example:  capitalizeAllNames(["bob","Seth","TOFU","Toyota"]) ---- returns ----> ["BOB","SETH","TOFU","TOYOTA"]
@@ -134,14 +136,15 @@ function countSpaces(input){
 
         return results.join(" ")
 
-        function capitalizeFirstLetter(array){
+        function capitalizeFirstLetter(array) {
             var tester = [];
 
-            for(let i = 0; i < array.length; i++){
+            for (let i = 0; i < array.length; i++) {
                 tester[i] = array[i].charAt(0) + array[i].substr(1);
             }
             return tester;
         }
+
 // July 7th 2021
 // TODO: Create a method on the object down below named getFullName that when called returns the users full name using the "this" key term.
 // Example: personOne.getFullName() ---- returns ----> "silvia floopertan"
@@ -170,7 +173,7 @@ function countSpaces(input){
 // TODO: Create a function named getTallUsers that accepts an array of objects. The objects in the array will be in the same format
 //  as PersonOne, PersonTwo, and PersonThree. The functions job is to return an array of users that have heightInInches equal to or greater than 65.
 
-        var people = [personOne,personTwo,personThree];
+        var people = [personOne, personTwo, personThree];
 
         var personThree = {
             firstName: "arlene",
@@ -181,24 +184,28 @@ function countSpaces(input){
 // Example: getTallUsers(people)
 // ---- returns ----> [{firstName: "silvia", lastName: "floopertan", ageInYears: 34, heightInInches: 65},
 //                     {firstName: "dan", lastName: "valdarez", ageInYears: 61, heightInInches: 73}] 
-        358  js/objAndArrPractice.js
-    @@ -0,0 +1,358 @@
+        358
+        js / objAndArrPractice.js
+    @@
+        -0, 0 + 1, 358
+
+        @@
 // function max(arrayOfNumbers){
 //     return Math.max(...arrayOfNumbers);
 // }
 
-            function max(arrayOfNumbers){
+            function max(arrayOfNumbers) {
 
                 var largestNumber;
 
                 for (let i = 0; i < arrayOfNumbers.length; i++) {
 
 
-                    if (largestNumber === undefined){
+                    if (largestNumber === undefined) {
                         largestNumber = arrayOfNumbers[0]
                     }
 
-                    if (arrayOfNumbers[i] > largestNumber){
+                    if (arrayOfNumbers[i] > largestNumber) {
                         console.log("I got in here")
                         largestNumber = arrayOfNumbers[i]
                     }
@@ -209,17 +216,17 @@ function countSpaces(input){
 
             }
 
-        function max(arrayOfNumbers){
+        function max(arrayOfNumbers) {
 
             var largestNumber;
 
-            arrayOfNumbers.forEach(function (singleNumber){
+            arrayOfNumbers.forEach(function (singleNumber) {
 
-                if (largestNumber === undefined){
+                if (largestNumber === undefined) {
                     largestNumber = singleNumber
                 }
 
-                if (singleNumber > largestNumber){
+                if (singleNumber > largestNumber) {
                     largestNumber = singleNumber
                 }
             })
@@ -238,7 +245,6 @@ function countSpaces(input){
 // console.log(max([4,34,193,2,345,46,0]));
 // console.log(max([-34,83,21,38,-2039,3.2]));
 // console.log(max([54.5,2,34,-93]));
-
 
 
 //
@@ -360,7 +366,6 @@ function countSpaces(input){
 //     return dateObject;
 //
 // }
-
 
 
 // function dateStringToObject(string){
@@ -517,7 +522,7 @@ function countSpaces(input){
             var counts = [];
             for (let i = 0; i < numbers.length; i++) {
                 var aNumber = numbers[i];
-                if(counts[aNumber] === undefined) {
+                if (counts[aNumber] === undefined) {
                     counts[aNumber] = 1;
                 } else {
                     counts[aNumber]++; // gives us access to the counts element at index "aNumber"
@@ -527,13 +532,13 @@ function countSpaces(input){
             // counts[0] = 55;
             // counts["frogs"] = 1;
             // 2. scan through the associative array and keep track of the value with the highest count
-            var maxCount = 0;
+            /!*var maxCount = 0;
             var winningNumber = "";
             for (const countsKey in counts) {
                 // console.log("the counts element at countsKey " + countsKey + " has a tally of " + counts[countsKey]);
                 var currentCount = counts[countsKey];
                 // when currentCount is > maxCount, we have a new winner so far
-                if(currentCount > maxCount) {
+                if (currentCount > maxCount) {
                     // update 2 things when we have a new winner
                     maxCount = currentCount;
                     winningNumber = countsKey;
@@ -541,3 +546,4 @@ function countSpaces(input){
             }
             return winningNumber;
         }
+    }*!/*/
