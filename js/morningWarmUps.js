@@ -141,6 +141,6 @@ function getTallUsers(arrayOfObjects) {
     }
     return tallUsers;
 }
-
+document.get
 
 console.log(getTallUsers(people))
