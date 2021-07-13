@@ -8,11 +8,17 @@
   dt {
     font-weight: bold;
   }
-  dd {
-    font-size: .9rem;
+  .invisible {
+    visibility: hidden;
   }
 
+  .blue {
+    color: blue;
+  }
 
+  .yellow {
+    background:yellow;
+  }
 
 </style>
 
@@ -25,76 +31,101 @@
     Great Smoky Mountains National Park often has the most.</dd>
 
 
-
   <dt>How many rangers work in Yellowstone?</dt>
   <dd>Approximately 738 people work for the National Park Service during the peak summer season.
     Approximately 386 are permanent, year-round employees.</dd>
-
-
 
   <dt>What is the difference between a national park and a national forest?</dt>
   <dd>National parks are administered by the Department of the Interior and national
     forests by the Department of Agriculture.</dd>
 
-
-
   <dt>How do you become a park ranger?</dt>
   <dd>Many National Park Service employees begin their careers as volunteers or as seasonal employees.</dd>
-
-
 
   <dt>Can we swim in rivers and lakes?</dt>
   <dd>Swimming is not recommended because most lakes and streams are dangerously cold.
     Firehole Canyon, near Madison Junction, has a swimming area popular in summer.</dd>
 
-
-
   <dt>What is the difference between a national park and a national forest?</dt>
   <dd>National parks are administered by the Department of the Interior and national
     forests by the Department of Agriculture.</dd>
-
-
 
   <dt>What is the Continental Divide?</dt>
   <dd>Think of the Continental Divide as the crest of the continent. Theoretically,
     when precipitation falls on the west side of the Divide,
     it eventually reaches the Pacific Ocean.</dd>
 
-
-
   <dt>How did Mt. Washburn form?</dt>
   <dd>At 10,243 feet, this peak can be seen from many locations in the park.</dd>
-
 
   <dt>Does Yellowstone include a federally designated wilderness?</dt>
   <dd>No. Most of the park was recommended for this designation in 1972,
     but Congress has not acted on the recommendation.</dd>
 
-
-
   <dt>Where do I Make Reservations to Stay in Yellowstone?</dt>
   <dd>Yellowstone National Park Lodges operates the nine lodges in the park. All are open from late spring through fall,
     but only two are open in the winter: Old Faithful Snow Lodge and Mammoth Hot Springs Hotel.</dd>
 </dl>
-<button class="toggler">Toggle DD visible</button>
+<button class="toggler">Toggle DD's Visibility</button>
+
+<h3 id="national-parks-heading">National Parks</h3>
+<ul id="national-parks">
+  <li>Arches</li>
+  <li>Badlands</li>
+  <li>Carlsbad Caverns</li>
+  <li>Denali</li>
+  <li>Everglades</li>
+</ul>
+<h3>State Parks of Texas</h3>
+<ul id="state-parks-texas">
+  <li>Abilene</li>
+  <li>Big Bend</li>
+  <li>Choke Canyon</li>
+  <li>Davis Mountains</li>
+  <li>Enchanted Rock</li>
+</ul>
+<h3>Washington Parks</h3>
+<ul id="local-parks">
+  <li>Bainbridge</li>
+  <li>Evergreen</li>
+  <li>The Ranch</li>
+  <li>Olympia</li>
+  <li>Yellow Rock</li>
+</ul>
+
+<button class='yButton'>Turn Yellow</button>
+<button class="liButton">Turn Last Li Yellow</button>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
 <script>
 $(document).ready(function() {
 
+
 $('dd').addClass('invisible');
 
-  $('.toggler').click(function (){
-  $('dd').toggleClass('invisible')
-});
+  $('.toggler').click(function () {
+    $('dd').toggleClass('invisible')
+  });
 
   $('dt').click(function () {
     $(this).css('background-color', 'yellow')
   });
 
+  var listParks = $('ul>li')
+  /*listParks.css({'color': 'purple'})*/
+
+  $('.yButton').click(function () {
+    $('li').toggleClass('blue')
+  });
+
+  $('.liButton').click(function () {
+    $('li').children().last().css('background-color', 'yellow')
+  });
 
 });
 </script>
+
 </body>
 </html>
