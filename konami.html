@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="/js/jquery.js"></script>
+<script>
+  "use strict";
+  var allKeysPress= [];
+  var count =0;
+
+
+$(document).ready(function() {
+
+
+  function keyPressEventHandler(event) {
+    allKeysPress += event.key;
+    var didkeySeq = allKeysPress === "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRight"
+    if(didkeySeq) {
+      allKeysPress = '';
+      alert("30+ Lives!")
+    } else {
+      if(!allKeysPress === "ArrowUpArrowUp" ) {
+        allKeysPress = 0
+        alert ("That's not it")
+      }
+    }
+
+
+  }
+
+
+  $(document).keydown(keyPressEventHandler)
+
+})
+
+
+
+
+
+
+</script>
+</body>
+</html>
