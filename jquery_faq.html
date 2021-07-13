@@ -93,7 +93,7 @@
   <li>Yellow Rock</li>
 </ul>
 
-<button class='yButton'>Turn Yellow</button>
+<button class='yButton'>Turn Blue</button>
 <button class="liButton">Turn Last Li Yellow</button>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -121,7 +121,7 @@ $('dd').addClass('invisible');
   });
 
   $('.liButton').click(function () {
-    $('li').children().last().css('background-color', 'yellow')
+    $('li').children().last().toggleClass('yellow')
   });
 
 });
