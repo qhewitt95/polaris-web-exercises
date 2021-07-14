@@ -93,8 +93,8 @@
   <li>Yellow Rock</li>
 </ul>
 
-<button class='yButton'>Turn Blue</button>
-<button class="liButton">Turn Last Li Yellow</button>
+<button class='blueButton'>Turn Blue</button>
+<button id="highlighter">Turn Last Li Yellow</button>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -116,14 +116,23 @@ $('dd').addClass('invisible');
   var listParks = $('ul>li')
   /*listParks.css({'color': 'purple'})*/
 
-  $('.yButton').click(function () {
+  $('.blueButton').click(function () {
     $('li').toggleClass('blue')
   });
 
-  $('.liButton').click(function () {
-    $('li').children().last().toggleClass('yellow')
+  $('#highlighter').click(function () {
+    $('ul').each(function () {
+      $(this).children().last().css('background-color', 'yellow')
+    });
   });
 
+    $('h3').click(function () {
+      $(this).next().children().css('font-weight', 'bold');
+    });
+
+  $('li').click(function () {
+    $(this).parent().children().first().css('color', 'blue');
+  })
 });
 </script>
 
