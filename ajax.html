@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax </title>
+</head>
+<body>
+<h1>Ajax request</h1>
+
+<p>loading...</p>
+
+
+<main id="mainContent">
+
+
+</main>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+  $(document).ready(function() {
+
+      $.ajax("https://raw.githubusercontent.com/CodeupClassroom/polaris-web-exercises/main/data/users.json",{
+          type: "GET",
+          dataType: "json"
+      }).done(function (data, status, jqXhr) {
+          data
+
+          var htmlMessages = ""
+
+          for (let i = 0; i < data.length; i++) {
+              var currentUser = data[i]
+              console.log(currentUser)
+              $("#mainContent").append("<p>"+ currentUser.first_name + " " + currentUser.last_name +"</p><img src='" + currentUser.gender + "'><br>")
+          }
+
+       var firstUser = data[0]
+
+
+       $('#mainContent').html(htmlMessage)
+
+   console.log("Request status: " + status);
+
+  })
+  .fail(function(jqXhr, status, error) {
+    alert("There was an error! Check the console for details");
+    console.log("Response status: " + status);
+    console.log("Error object: " + error);
+  })
+   .always(function(){
+        alert('AJAX request has finished')
+
+    })
+
+
+
+  });
+</script>
+</body>
+</html>
