@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Display buildings in 3D</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+  <style>
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoicWhld2l0dCIsImEiOiJja3I1MXNiYnQxNDRvMm5uMzFpY3ZzajcyIn0.THXhlaknql_kk7thgWrHrQ';
+  var map = new mapboxgl.Map({
+    style: 'mapbox://styles/mapbox/dark-v10',
+    center: [-122.341446, 47.609823],
+    zoom: 19,
+    pitch: 45,
+    bearing: -17.6,
+    container: 'map',
+    antialias: true
+  });
+  var marker = new mapboxgl.Marker()
+          .setLngLat([-122.341446, 47.609823])
+          .addTo(map);
+  var marker1 = new mapboxgl.Marker()
+          .setLngLat([-122.341479, 47.609450])
+          .addTo(map);
+  var marker2 = new mapboxgl.Marker()
+          .setLngLat([-122.341286, 47.609549])
+          .addTo(map);
+  var popup1 = new mapboxgl.Popup()
+          .setLngLat([-122.341479, 47.609450])
+          .setHTML("<p>Sister Sandwiches - Best in the Pacific Northwest!</p>")
+          .addTo(map)
+  var popup = new mapboxgl.Popup()
+          .setLngLat([-122.341446, 47.609823])
+          .setHTML("<p>Cinnamon Works - We got the cinnamon!</p>")
+          .addTo(map)
+  var popup2 = new mapboxgl.Popup()
+          .setLngLat([-122.341286, 47.609549])
+          .setHTML("<p>Jasmine Thai Cuisine - We make big thai!</p>")
+          .addTo(map)
+
+
+  marker.setPopup(popup)
+  marker1.setPopup(popup1)
+  marker2.setPopup(popup2)
+
+
+
+
+
+
+
+</script>
+  </body>
+  </html>

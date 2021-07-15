@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map Box</title>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+
+<div id='map' style='width: 98vw; height: 98vh;'></div>
+<style>
+    #menu {
+        position: absolute;
+        background: #efefef;
+        padding: 10px;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .mapboxgl-popup {
+        max-width: 400px;
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    }
+</style>
+
+
+
+<div id="menu">
+    <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">
+    <!-- See a list of Mapbox-hosted public styles at -->
+    <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
+    <label for="satellite-v9">satellite</label>
+    <input id="light-v10" type="radio" name="rtoggle" value="light">
+    <label for="light-v10">light</label>
+    <input id="dark-v10" type="radio" name="rtoggle" value="dark">
+    <label for="dark-v10">dark</label>
+    <input id="streets-v11" type="radio" name="rtoggle" value="streets">
+    <label for="streets-v11">streets</label>
+    <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
+    <label for="outdoors-v11">outdoors</label>
+</div>
+<script src="js/keys.js"></script>
+
+<script>
+
+  mapboxgl.accessToken = mapboxAPIKey;
+
+  var map = new mapboxgl.Map({
+
+    container: 'map',
+      style: 'mapbox://styles/mapbox/outdoors-v9', // style URL
+      center: [-98.491142, 29.424349], // starting position [lng, lat]
+      zoom: 10 // starting zoom
+  });
+  var layerList = document.getElementById('menu');
+  var inputs = layerList.getElementsByTagName('input');
+  function switchLayer(layer) {
+      var layerId = layer.target.id;
+      map.setStyle('mapbox://styles/mapbox/' + layerId);
+  }
+
+  for (var i = 0; i < inputs.length; i++) {
+      inputs[i].onclick = switchLayer;
+  }
+  var marker = new mapboxgl.Marker()
+      .setLngLat([-98.4916, 29.4260])
+      .addTo(map);
+  var popup = new mapboxgl.Popup()
+      .setLngLat([-98.489615, 29.426827])
+      .setHTML("<p>Codeup Rocks!</p>")
+      .addTo(map)
+  var alamoPopup = new mapboxgl.Popup()
+      .setHTML("<p>Remember The Alamo!</p>")
+      .addTo(map)
+
+  marker.setPopup(alamoPopup)
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
