@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>weathermap</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="css/weathermap.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -12,94 +16,174 @@
 <script src="js/keys.js"></script>
 <script>
   "use strict"
-  $(document).ready(function(){
+ /* /!*$(document).ready(function(){
     $.get("https://api.openweathermap.org/data/2.5/weather", {
       appid: OpenWeatherAPIKey,
       q:     "San Antonio, US",
       units:"imperial"
-    });
+    });*!/
 
-  })
+  })*/
 
 </script>
+<!--NAV BAR-->
 <header>
     <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1">Weather App</span>
     </nav>
 
-
+    <!--NAV BAR-->
 
 
 </header>
 <main>
-<br>
 
-    <div class="container-sm">
+<br>
+<!--SEARCH BAR STUFF-->
+    <!--<div class="container-sm">
     <form class="form-inline my-2 my-lg-0">
-        <span class="navbar-text"> Place </span>
-        <input class="form-control mr-sm-2" type="search" placeholder="Search">
+        <span class="navbar-text">  </span>
+        <input class="form-control mr-4" type="search" placeholder="Enter address,city,state">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Find</button>
     </form>
-    </div>
-
+    </div>-->
+    <!--SEARCH BAR STUFF-->
+<!--CARDS-->
     <br>
-    <div class ='container-md'>
+    <div class ='container'>
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Date: 7-19</h5>
+                    <table>
+                        <tr>Description:Overcast </tr><hr>
+                        <tr>Humidity: 88</tr><hr>
+                        <tr>Wind:7</tr><hr>
+                        <tr>Pressure:N/A</tr>
+                    </table>
                 </div>
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Date:7-20</h5>
+                    <table>
+                        <tr>Description:Cloudy</tr><hr>
+                        <tr>Humidity:77</tr><hr>
+                        <tr>Wind:4</tr><hr>
+                        <tr>Pressure:N/A</tr>
+                    </table>
                 </div>
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Date:7-21</h5>
+                    <table>
+                        <tr>Description:Rainy </tr><hr>
+                        <tr>Humidity:81</tr><hr>
+                        <tr>Wind:1</tr><hr>
+                        <tr>Pressure:N/A</tr>
+                    </table>
                 </div>
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Date:7-22</h5>
+                    <table>
+                        <tr>Description:Sunny</tr><hr>
+                        <tr>Humidity:41</tr><hr>
+                        <tr>Wind:2</tr><hr>
+                        <tr>Pressure:N/A</tr>
+                    </table>
                 </div>
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Date:7-22</h5>
+                    <table>
+                        <tr>Description:Sunny</tr><hr>
+                        <tr>Humidity:41</tr><hr>
+                        <tr>Wind:2</tr><hr>
+                        <tr>Pressure:N/A</tr>
+                    </table>
                 </div>
             </div>
         </div>
+        <!--CARDS-->
     </div>
-</div>
+    <br>
+
+<!--MAPBOX -->
+        <br>
+    <div id='map' style='width: 80vw; height: 35vh;'></div>
 
 
+    </div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoicWhld2l0dCIsImEiOiJja3I1MXNiYnQxNDRvMm5uMzFpY3ZzajcyIn0.THXhlaknql_kk7thgWrHrQ';
+        var map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            center: [-98.4936282, 	29.4241219], // starting position [lng, lat]
+            zoom: 9 // starting zoom
+        });
+    </script>
+    <!-- Load the `mapbox-gl-geocoder` plugin. -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
+
+    <!-- Promise polyfill script is required -->
+    <!-- to use Mapbox GL Geocoder in IE 11. -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 
 
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoicWhld2l0dCIsImEiOiJja3I1MXNiYnQxNDRvMm5uMzFpY3ZzajcyIn0.THXhlaknql_kk7thgWrHrQ';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-79.4512, 43.6568],
+            zoom: 13
+        });
 
+        // Add the control to the map.
+        map.addControl(
+            new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                mapboxgl: mapboxgl
+            })
+        );
+    </script>
+
+
+<!--    -98.4936282, 	29.4241219 SA CORD-->
+    <!--MAPBOX -->
+    <div class="container">
+    <div id="menu">
+        <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">
+        <!-- See a list of Mapbox-hosted public styles at -->
+        <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
+        <label for="satellite-v9">satellite</label>
+        <input id="light-v10" type="radio" name="rtoggle" value="light">
+        <label for="light-v10">light</label>
+        <input id="dark-v10" type="radio" name="rtoggle" value="dark">
+        <label for="dark-v10">dark</label>
+        <input id="streets-v11" type="radio" name="rtoggle" value="streets">
+        <label for="streets-v11">streets</label>
+        <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
+        <label for="outdoors-v11">outdoors</label>
+    </div>
+    </div>
 
 </main>
-
 </body>
 </html>
