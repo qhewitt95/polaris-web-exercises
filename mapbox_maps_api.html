@@ -33,13 +33,13 @@
   var marker2 = new mapboxgl.Marker()
           .setLngLat([-122.341286, 47.609549])
           .addTo(map);
-  var popup1 = new mapboxgl.Popup()
-          .setLngLat([-122.341479, 47.609450])
-          .setHTML("<p>Sister Sandwiches - Best in the Pacific Northwest!</p>")
-          .addTo(map)
   var popup = new mapboxgl.Popup()
           .setLngLat([-122.341446, 47.609823])
           .setHTML("<p>Cinnamon Works - We got the cinnamon!</p>")
+          .addTo(map)
+  var popup1 = new mapboxgl.Popup()
+          .setLngLat([-122.341479, 47.609450])
+          .setHTML("<p>Sister Sandwiches - Best in the Pacific Northwest!</p>")
           .addTo(map)
   var popup2 = new mapboxgl.Popup()
           .setLngLat([-122.341286, 47.609549])
@@ -50,6 +50,40 @@
   marker.setPopup(popup)
   marker1.setPopup(popup1)
   marker2.setPopup(popup2)
+
+  var marker = new mapboxgl.Marker({
+    color: '#F84C4C' // color it red
+  });
+
+  /*// Define the animation.
+  function animateMarker(timestamp) {
+    var radius = 20;
+
+    /!*
+    Update the data to a new position
+    based on the animation timestamp.
+    The divisor in the expression `timestamp / 1000`
+    controls the animation speed.
+    *!/
+    marker.setLngLat([
+      Math.cos(timestamp / 1000) * radius,
+      Math.sin(timestamp / 1000) * radius
+    ]);
+
+    /!*
+    Ensure the marker is added to the map.
+    This is safe to call if it's already added.
+    *!/
+    marker.addTo(map);
+
+// Request the next frame of the animation.
+    requestAnimationFrame(animateMarker);
+  }
+
+  // Start the animation.
+  requestAnimationFrame(animateMarker);*/
+
+
 
 
 
