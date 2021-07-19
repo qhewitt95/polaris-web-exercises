@@ -16,20 +16,51 @@
 <script src="js/keys.js"></script>
 <script>
   "use strict"
- /* /!*$(document).ready(function(){
-    $.get("https://api.openweathermap.org/data/2.5/weather", {
+  $(document).ready(function(){
+    $.get("https://api.openweathermap.org/data/2.5/onecall", {
       appid: OpenWeatherAPIKey,
-      q:     "San Antonio, US",
+        lat:29.4241219,
+        lon:-98.4936282,
       units:"imperial"
-    });*!/
+    })
 
-  })*/
+      /*$.ajax("data/weather.json",{
+          type: "GET",
+          dataType: "json"
+
+      })*/
+
+        .done(function(data) {
+            console.log(data)
+            for(let i=0; i < 5; i++) {
+                let day = new Date(data.daily[i].dt * 1000)
+                $('#card-body').append(`<div className="col">
+                    <div className="card">
+                        <div className="card-body">
+                            <h5 className="card-title">Date:</h5>
+                            <table>
+                                <tr>Description:</tr><hr>
+                                    <tr>Humidity:</tr><hr>
+                                        <tr>Wind:</tr><hr>
+                                        <tr>Pressure:</tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>`)
+            }
+            console.log('5 day forecast', data);
+
+        });
+
+  })
+
 
 </script>
 <!--NAV BAR-->
 <header>
     <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1">Weather App</span>
+        <span class="navbar-brand">Current City:<p id="newCity"> San Antonio </p></span>
     </nav>
 
     <!--NAV BAR-->
@@ -37,7 +68,11 @@
 
 </header>
 <main>
-
+    <br>
+    <div class="container">
+    <input type="search" id="textbox" name="q" placeholder="Enter City,State or Zip.">
+    <button id="button">GO</button>
+    </div>
 <br>
 <!--SEARCH BAR STUFF-->
     <!--<div class="container-sm">
@@ -51,29 +86,31 @@
 <!--CARDS-->
     <br>
     <div class ='container'>
-    <div class="row">
-        <div class="col">
+    <div class="row" id="card-body">
+        <!--<div class="col">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Date: 7-19</h5>
                     <table>
-                        <tr>Description:Overcast </tr><hr>
-                        <tr>Humidity: 88</tr><hr>
-                        <tr>Wind:7</tr><hr>
-                        <tr>Pressure:N/A</tr>
+                        <tr>Description: </tr><hr>
+                        <tr>Humidity: </tr><hr>
+                        <tr>Wind:</tr><hr>
+                        <tr>Pressure:</tr>
                     </table>
                 </div>
             </div>
-        </div>
-        <div class="col">
+        </div>-->
+    </div>
+</div>
+        <!--<div class="col">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Date:7-20</h5>
                     <table>
-                        <tr>Description:Cloudy</tr><hr>
-                        <tr>Humidity:77</tr><hr>
-                        <tr>Wind:4</tr><hr>
-                        <tr>Pressure:N/A</tr>
+                        <tr>Description:</tr><hr>
+                        <tr>Humidity:</tr><hr>
+                        <tr>Wind:</tr><hr>
+                        <tr>Pressure:</tr>
                     </table>
                 </div>
             </div>
@@ -83,10 +120,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Date:7-21</h5>
                     <table>
-                        <tr>Description:Rainy </tr><hr>
-                        <tr>Humidity:81</tr><hr>
-                        <tr>Wind:1</tr><hr>
-                        <tr>Pressure:N/A</tr>
+                        <tr>Description:</tr><hr>
+                        <tr>Humidity:</tr><hr>
+                        <tr>Wind:</tr><hr>
+                        <tr>Pressure:</tr>
                     </table>
                 </div>
             </div>
@@ -96,10 +133,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Date:7-22</h5>
                     <table>
-                        <tr>Description:Sunny</tr><hr>
-                        <tr>Humidity:41</tr><hr>
-                        <tr>Wind:2</tr><hr>
-                        <tr>Pressure:N/A</tr>
+                        <tr>Description:</tr><hr>
+                        <tr>Humidity:</tr><hr>
+                        <tr>Wind:</tr><hr>
+                        <tr>Pressure:</tr>
                     </table>
                 </div>
             </div>
@@ -107,84 +144,101 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Date:7-22</h5>
+                    <h5 class="card-title">Date:7-23</h5>
                     <table>
-                        <tr>Description:Sunny</tr><hr>
-                        <tr>Humidity:41</tr><hr>
-                        <tr>Wind:2</tr><hr>
-                        <tr>Pressure:N/A</tr>
+                        <tr>Description:</tr><hr>
+                        <tr>Humidity:</tr><hr>
+                        <tr>Wind:</tr><hr>
+                        <tr>Pressure:</tr>
                     </table>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!--CARDS-->
-    </div>
+
     <br>
 
 <!--MAPBOX -->
         <br>
 
     <div id='map' style='width: 1110px; height: 35vh;'></div>
+        <pre id="coordinates" class="coordinates"></pre>
 
 
-    </div>
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoicWhld2l0dCIsImEiOiJja3I1MXNiYnQxNDRvMm5uMzFpY3ZzajcyIn0.THXhlaknql_kk7thgWrHrQ';
-        var map = new mapboxgl.Map({
-            container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/streets-v11', // style URL
-            center: [-98.4936282, 	29.4241219], // starting position [lng, lat]
-            zoom: 9 // starting zoom
-        });
-    </script>
     <!-- Load the `mapbox-gl-geocoder` plugin. -->
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
 
-    <!-- Promise polyfill script is required -->
-    <!-- to use Mapbox GL Geocoder in IE 11. -->
-    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+
 
 
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoicWhld2l0dCIsImEiOiJja3I1MXNiYnQxNDRvMm5uMzFpY3ZzajcyIn0.THXhlaknql_kk7thgWrHrQ';
+        var coordinates = document.getElementById('coordinates');
         var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/mapbox/dark-v10',
-            center: [-79.4512, 43.6568],
-            zoom: 13
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-98.4936282, 29.4241219],
+            zoom: 17
+
         });
 
-        // Add the control to the map.
-        map.addControl(
-            new MapboxGeocoder({
-                accessToken: mapboxgl.accessToken,
-                mapboxgl: mapboxgl
-            })
-        );
+        var newCity = ""
+
+
+    $('#button').click(function () {
+
+       newCity = (document.getElementById('textbox').value)
+        $('#newCity').html(newCity)
+        geocode(document.getElementById('textbox').value, mapboxAPIKey).then(function (value) {
+            map.flyTo({
+                center: [
+                    value[0],
+                    value[1]
+                ],
+                essential: true // this animation is considered essential with respect to prefers-reduced-motion
+
+            });
+        })
+    })
+
+
+        function geocode(search, token) {
+            var baseUrl = 'https://api.mapbox.com';
+            var endPoint = '/geocoding/v5/mapbox.places/';
+            return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+                .then(function(res) {
+                    return res.json();
+                    // to get all the data from the request, comment out the following three lines...
+                }).then(function(data) {
+                    return data.features[0].center;
+                });
+        }
+
+        var marker = new mapboxgl.Marker({
+            draggable: true
+        })
+            .setLngLat([-98.4936282, 29.4241219])
+            .addTo(map);
+
+        function onDragEnd() {
+            var lngLat = marker.getLngLat();
+            coordinates.style.display = 'block';
+            coordinates.innerHTML =
+                'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+        }
+
+        marker.on('dragend', onDragEnd);
     </script>
 
 
 <!--    -98.4936282, 	29.4241219 SA CORD-->
     <!--MAPBOX -->
-    <div class="container">
-    <div id="menu">
-        <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">
-        <!-- See a list of Mapbox-hosted public styles at -->
-        <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
-        <label for="satellite-v9">satellite</label>
-        <input id="light-v10" type="radio" name="rtoggle" value="light">
-        <label for="light-v10">light</label>
-        <input id="dark-v10" type="radio" name="rtoggle" value="dark">
-        <label for="dark-v10">dark</label>
-        <input id="streets-v11" type="radio" name="rtoggle" value="streets">
-        <label for="streets-v11">streets</label>
-        <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
-        <label for="outdoors-v11">outdoors</label>
-    </div>
-    </div>
+
 
 </main>
 </body>
 </html>
+<!--
+[-98.4936282, 29.4241219]-->
