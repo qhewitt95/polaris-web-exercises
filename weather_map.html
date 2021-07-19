@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>weathermap</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="css/weathermap.css">
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet'/>
 
 </head>
 <body>
@@ -15,44 +16,45 @@
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="js/keys.js"></script>
 <script>
-  "use strict"
-  $(document).ready(function(){
-    $.get("https://api.openweathermap.org/data/2.5/onecall", {
-      appid: OpenWeatherAPIKey,
-        lat:29.4241219,
-        lon:-98.4936282,
-      units:"imperial"
-    })
+    "use strict"
+    $(document).ready(function () {
+        $.get("https://api.openweathermap.org/data/2.5/onecall", {
+            appid: OpenWeatherAPIKey,
+            lat: 29.4241219,
+            lon: -98.4936282,
+            units: "imperial"
+        })
 
-      /*$.ajax("data/weather.json",{
-          type: "GET",
-          dataType: "json"
+            /*$.ajax("data/weather.json",{
+                type: "GET",
+                dataType: "json"
 
-      })*/
+            })*/
 
-        .done(function(data) {
-            console.log(data)
-            for(let i=0; i < 5; i++) {
-                let day = new Date(data.daily[i].dt * 1000)
-                $('#card-body').append(`<div className="col">
-                    <div className="card">
-                        <div className="card-body">
-                            <h5 className="card-title">Date:</h5>
+            .done(function (data) {
+
+                for (let i = 0; i < 5; i++) {
+                    console.log(data)
+                    let day = new Date(data.daily[i].dt * 1000)
+                    console.log(day)
+                    $('#card-body').append(`<div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Date: ` + (day.getMonth() + 1) + `/` + day.getDate() + `</h5>
                             <table>
-                                <tr>Description:</tr><hr>
-                                    <tr>Humidity:</tr><hr>
-                                        <tr>Wind:</tr><hr>
-                                        <tr>Pressure:</tr>
+                                <tr>Description:${data.daily[i].weather[0].description}</tr><hr>
+                                    <tr>Humidity:${data.daily[i].humidity}</tr><hr>
+                                        <tr>Wind:${data.daily[i].wind_speed}</tr><hr>
+                                        <tr>Temperature:${data.daily[i].temp.max} / ${data.daily[i].temp.min} </tr>
                             </table>
                         </div>
                     </div>
                 </div>`)
-            }
-            console.log('5 day forecast', data);
+                }
 
-        });
+            });
 
-  })
+    })
 
 
 </script>
@@ -70,11 +72,11 @@
 <main>
     <br>
     <div class="container">
-    <input type="search" id="textbox" name="q" placeholder="Enter City,State or Zip.">
-    <button id="button">GO</button>
+        <input type="search" id="textbox" name="q" placeholder="Enter City,State or Zip.">
+        <button id="button">GO</button>
     </div>
-<br>
-<!--SEARCH BAR STUFF-->
+    <br>
+    <!--SEARCH BAR STUFF-->
     <!--<div class="container-sm">
     <form class="form-inline my-2 my-lg-0">
         <span class="navbar-text">  </span>
@@ -83,94 +85,94 @@
     </form>
     </div>-->
     <!--SEARCH BAR STUFF-->
-<!--CARDS-->
+    <!--CARDS-->
     <br>
-    <div class ='container'>
-    <div class="row" id="card-body">
-        <!--<div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Date: 7-19</h5>
-                    <table>
-                        <tr>Description: </tr><hr>
-                        <tr>Humidity: </tr><hr>
-                        <tr>Wind:</tr><hr>
-                        <tr>Pressure:</tr>
-                    </table>
+    <div class='container'>
+        <div class="row" id="card-body">
+            <!--<div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Date: 7-19</h5>
+                        <table>
+                            <tr>Description: </tr><hr>
+                            <tr>Humidity: </tr><hr>
+                            <tr>Wind:</tr><hr>
+                            <tr>Pressure:</tr>
+                        </table>
+                    </div>
                 </div>
-            </div>
-        </div>-->
+            </div>-->
+        </div>
     </div>
-</div>
-        <!--<div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Date:7-20</h5>
-                    <table>
-                        <tr>Description:</tr><hr>
-                        <tr>Humidity:</tr><hr>
-                        <tr>Wind:</tr><hr>
-                        <tr>Pressure:</tr>
-                    </table>
-                </div>
+    <!--<div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Date:7-20</h5>
+                <table>
+                    <tr>Description:</tr><hr>
+                    <tr>Humidity:</tr><hr>
+                    <tr>Wind:</tr><hr>
+                    <tr>Pressure:</tr>
+                </table>
             </div>
         </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Date:7-21</h5>
-                    <table>
-                        <tr>Description:</tr><hr>
-                        <tr>Humidity:</tr><hr>
-                        <tr>Wind:</tr><hr>
-                        <tr>Pressure:</tr>
-                    </table>
-                </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Date:7-21</h5>
+                <table>
+                    <tr>Description:</tr><hr>
+                    <tr>Humidity:</tr><hr>
+                    <tr>Wind:</tr><hr>
+                    <tr>Pressure:</tr>
+                </table>
             </div>
         </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Date:7-22</h5>
-                    <table>
-                        <tr>Description:</tr><hr>
-                        <tr>Humidity:</tr><hr>
-                        <tr>Wind:</tr><hr>
-                        <tr>Pressure:</tr>
-                    </table>
-                </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Date:7-22</h5>
+                <table>
+                    <tr>Description:</tr><hr>
+                    <tr>Humidity:</tr><hr>
+                    <tr>Wind:</tr><hr>
+                    <tr>Pressure:</tr>
+                </table>
             </div>
         </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Date:7-23</h5>
-                    <table>
-                        <tr>Description:</tr><hr>
-                        <tr>Humidity:</tr><hr>
-                        <tr>Wind:</tr><hr>
-                        <tr>Pressure:</tr>
-                    </table>
-                </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Date:7-23</h5>
+                <table>
+                    <tr>Description:</tr><hr>
+                    <tr>Humidity:</tr><hr>
+                    <tr>Wind:</tr><hr>
+                    <tr>Pressure:</tr>
+                </table>
             </div>
-        </div>-->
-        <!--CARDS-->
+        </div>
+    </div>-->
+    <!--CARDS-->
 
     <br>
 
-<!--MAPBOX -->
-        <br>
-
+    <!--MAPBOX -->
+    <br>
+<div class="container">
     <div id='map' style='width: 1110px; height: 35vh;'></div>
-        <pre id="coordinates" class="coordinates"></pre>
+    <pre id="coordinates" class="coordinates"></pre>
+</div>
 
 
     <!-- Load the `mapbox-gl-geocoder` plugin. -->
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
-
-
-
+    <link rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
+          type="text/css">
 
 
     <script>
@@ -187,31 +189,72 @@
         var newCity = ""
 
 
-    $('#button').click(function () {
+        $('#button').click(function () {
+            newCity = (document.getElementById('textbox').value)
+            $('#newCity').html(newCity)
+            var coord = [];
+            geocode(document.getElementById('textbox').value, mapboxAPIKey).then(function (value) {
+                coord = value;
+                console.log(value)
+                map.flyTo({
+                    center: [
+                        value[0],
+                        value[1]
+                    ],
+                    essential: true // this animation is considered essential with respect to prefers-reduced-motion
 
-       newCity = (document.getElementById('textbox').value)
-        $('#newCity').html(newCity)
-        geocode(document.getElementById('textbox').value, mapboxAPIKey).then(function (value) {
-            map.flyTo({
-                center: [
-                    value[0],
-                    value[1]
-                ],
-                essential: true // this animation is considered essential with respect to prefers-reduced-motion
+                });
+                getWeather()
+            })
 
-            });
+            function getWeather() {
+                $.get("https://api.openweathermap.org/data/2.5/onecall", {
+                    appid: OpenWeatherAPIKey,
+                    lat: coord[1],
+                    lon: coord[0],
+                    units: "imperial"
+                })
+
+                    /*$.ajax("data/weather.json",{
+                    type: "GET",
+                    dataType: "json"
+
+                })*/
+
+                    .done(function (data) {
+                        $('#card-body').html("")
+                        for (let i = 0; i < 5; i++) {
+                            console.log(data)
+                            let day = new Date(data.daily[i].dt * 1000)
+                            console.log(day)
+                            $('#card-body').append(`<div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Date: ` + (day.getMonth() + 1) + `/` + day.getDate() + `</h5>
+                            <table>
+                                <tr>Description:${data.daily[i].weather[0].description}</tr><hr>
+                                    <tr>Humidity:${data.daily[i].humidity}</tr><hr>
+                                        <tr>Wind:${data.daily[i].wind_speed}</tr><hr>
+                                        <tr>Temperature:${data.daily[i].temp.max} / ${data.daily[i].temp.min} </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>`)
+                        }
+
+                    });
+            }
         })
-    })
 
 
         function geocode(search, token) {
             var baseUrl = 'https://api.mapbox.com';
             var endPoint = '/geocoding/v5/mapbox.places/';
             return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
-                .then(function(res) {
+                .then(function (res) {
                     return res.json();
                     // to get all the data from the request, comment out the following three lines...
-                }).then(function(data) {
+                }).then(function (data) {
                     return data.features[0].center;
                 });
         }
@@ -233,12 +276,11 @@
     </script>
 
 
-<!--    -98.4936282, 	29.4241219 SA CORD-->
+
     <!--MAPBOX -->
 
 
 </main>
 </body>
 </html>
-<!--
-[-98.4936282, 29.4241219]-->
+
